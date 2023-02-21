@@ -62,19 +62,20 @@ class MaxStackTest {
         var element2 = new Node();
         var element3 = new Node();
         stack.next = element3;
-        element3.data = 35;
+        element3.data = 75;
         element3.next = element2;
         element2.data = 30;
         element2.next = element1;
         element1.data = 50;
         element1.next = element0;
-        element0.data = 40;
+        element0.data = 60;
 
         maxStack.pop(stack);
         Node node = stack.next;
         do{
-            assertNotEquals(40,node.data);
+            assertNotEquals(75,node.data);
             node = node.next;
         }while (node.next != null);
+        assertNotEquals(75,node.data);
     }
 }
