@@ -1,7 +1,7 @@
 package com.assignment.maxstack;
 
 public class MaxStack {
-    public Node stack(){ return new Node(); }
+    //public Node stack(){ return new Node(); }
 
     public void push(Node head, int value){
 
@@ -18,7 +18,7 @@ public class MaxStack {
         }
     }
 
-    public int peek(Node head) throws NullPointerException { return head.next.data; }
+    public int peek(Node head) { return head.next.data; }
 
     public void pop(Node stack){
 

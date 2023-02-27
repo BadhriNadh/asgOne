@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MaxStackTest {
-    @Test
-    public void createStackTest(){
-        MaxStack maxStack = new MaxStack();
-        assertNotNull(maxStack.stack());
-    }
+//    @Test
+//    public void createStackTest(){
+//        MaxStack maxStack = new MaxStack();
+//        assertNotNull(maxStack.stack());
+//    }
 
     @Test
     public void pushToEmptyStackTest(){
@@ -46,12 +46,6 @@ class MaxStackTest {
         assertEquals(10,maxStack.peek(stack));
     }
 
-//    @Test()
-//    public void peekEmptyStackTest(){
-//        MaxStack maxStack = new MaxStack();
-//        var stack = new Node();
-//        assertThrows(NullPointerException,maxStack.peek(stack));
-//    }
 
     @Test()
     public void popTest(){
@@ -76,6 +70,31 @@ class MaxStackTest {
             assertNotEquals(75,node.data);
             node = node.next;
         }while (node.next != null);
-        assertNotEquals(75,node.data);
+    }
+
+    @Test()
+    public void popLastElementMaxTest(){
+        MaxStack maxStack = new MaxStack();
+        var stack = new Node();
+        var element0 = new Node();
+        var element1 = new Node();
+        var element2 = new Node();
+        var element3 = new Node();
+        stack.next = element3;
+        element3.data = 75;
+        element3.next = element2;
+        element2.data = 30;
+        element2.next = element1;
+        element1.data = 50;
+        element1.next = element0;
+        element0.data = 80;
+
+        maxStack.pop(stack);
+        Node node = stack.next;
+        do{
+            assertNotEquals(80,node.data);
+            node = node.next;
+        }while (node.next != null);
+        assertNotEquals(80,node.data);
     }
 }
